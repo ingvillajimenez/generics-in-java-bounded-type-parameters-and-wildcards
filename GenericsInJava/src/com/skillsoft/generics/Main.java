@@ -9,13 +9,12 @@ public class Main {
 
         Map<String, Double> studentsMap = new HashMap<>();
 
-        studentsMap.put("Dorian", 45.4);
+        studentsMap.put("Dorian", 45.5);
         studentsMap.put("Ophelia", 67.2);
         studentsMap.put("Matthew", 73.8);
         studentsMap.put("Carl", 87.0);
 
-        System.out.println("Average score of students (double scores): " +
-                StudentsUtil.computeAverageScore(studentsMap));
+        System.out.println("Scores list (doubles): " + StudentsUtil.getScoresAsList(studentsMap));
 
         Map<String, Integer> anotherStudentsMap = new HashMap<>();
 
@@ -23,38 +22,7 @@ public class Main {
         anotherStudentsMap.put("Perry", 78);
         anotherStudentsMap.put("Paul", 67);
 
-        System.out.println("Average score of students (integer scores): " +
-                StudentsUtil.computeAverageScore(anotherStudentsMap));
-
-//        Map<String, Float> studentsMap = new HashMap<>();
-//
-//        studentsMap.put("Dorian", 45.4f);
-//        studentsMap.put("Ophelia", 67.2f);
-//        studentsMap.put("Matthew", 73.8f);
-//        studentsMap.put("Carl", 87.0f);
-//
-//        System.out.println("Average score of students: " +
-//                StudentsUtil.computeAverageScore(studentsMap)); // java: incompatible types: java.util.Map<java.lang.String,java.lang.Float> cannot be converted to java.util.Map<java.lang.String,java.lang.Number>
-
-//        Map<String, Integer> studentsMap = new HashMap<>();
-//
-//        studentsMap.put("Dorian", 45);
-//        studentsMap.put("Ophelia", 67);
-//        studentsMap.put("Matthew", 73);
-//        studentsMap.put("Carl", 87);
-//
-//        System.out.println("Average score of students: " +
-//                StudentsUtil.computeAverageScore(studentsMap)); // java: incompatible types: java.util.Map<java.lang.String,java.lang.Integer> cannot be converted to java.util.Map<java.lang.String,java.lang.Number>
-
-//        Map<String, Number> studentsMap = new HashMap<>();
-//
-//        studentsMap.put("Dorian", 45);
-//        studentsMap.put("Ophelia", 67);
-//        studentsMap.put("Matthew", 73);
-//        studentsMap.put("Carl", 87);
-//
-//        System.out.println("Average score of students: " +
-//                StudentsUtil.computeAverageScore(studentsMap));
+        System.out.println("Scores list (integers): " + StudentsUtil.getScoresAsList(anotherStudentsMap));
 
     }
 }
@@ -73,3 +41,6 @@ public class Main {
 
 // 3 Types of Wildcards
 // Upper bounded, unbounded, lower bounded wildcards
+
+// Bounded Type Parameters vs. Upper Bounded Wildcards
+// With bounded types the type T is known, with wildcards the type ? is unknown

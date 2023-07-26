@@ -1,46 +1,39 @@
 package com.skillsoft.generics;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class StudentsUtil {
 
-    public static <T extends Number> double computeAverageScore(Map<String, T> studentsMap) { // Bounded type parameter
+    public static List<? extends Number> getScoresAsList(Map<String, ? extends Number> studentsMap) {
 
-        double totalScore = 0;
-        int count = 0;
+        List<? extends Number> list = new ArrayList<>();
 
-        for (Map.Entry<String, T> entry : studentsMap.entrySet()) {
-            totalScore += entry.getValue().doubleValue();
-            count++;
+        for (Map.Entry<String, ? extends Number> entry : studentsMap.entrySet()) {
+            // NOTE: The data type of the element is unknown, we can only access
+            // it using the Object data type
+            Object score = entry.getValue();
+
+            // NOTE: This method requires the actual data type of the element
+            // being added, that is not available when we use upper bounded wildcards
+            list.add(score); // java: incompatible types: java.lang.Object cannot be converted to capture#1 of ? extends java.lang.Number
         }
 
-        return totalScore / count;
+        return list;
     }
 
-//    public static double computeAverageScore(Map<String, ? extends Number> studentsMap) { // Upper bounded wildcard (?)
+//    public static <T extends Number> List<T> getScoresAsList(Map<String, T> studentsMap) {
 //
-//        double totalScore = 0;
-//        int count = 0;
+//        List<T> list = new ArrayList<>();
 //
-//        for (Map.Entry<String, ? extends Number> entry : studentsMap.entrySet()) { // Upper bounded wildcard (?)
-//            totalScore += entry.getValue().doubleValue();
-//            count++;
+//        for (Map.Entry<String, T> entry : studentsMap.entrySet()) {
+//            T score = entry.getValue();
+//
+//            list.add(score);
 //        }
 //
-//        return totalScore / count;
-//    }
-
-//    public static double computeAverageScore(Map<String, Number> studentsMap) {
-//
-//        double totalScore = 0;
-//        int count = 0;
-//
-//        for (Map.Entry<String, Number> entry : studentsMap.entrySet()) {
-//            totalScore += entry.getValue().doubleValue();
-//            count++;
-//        }
-//
-//        return totalScore / count;
+//        return list;
 //    }
 
 }
