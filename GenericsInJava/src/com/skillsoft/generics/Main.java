@@ -6,43 +6,39 @@ import java.util.Date;
 public class Main {
 
     private static <T extends Comparable<T>> Box<T> getLarger(Box<T> box1, Box<T> box2) {
-        if (box1.getValue().compareTo(box2.getValue()) > 0) {
+        if (box1.compareTo(box2) > 0) {
             return box1;
         }
 
         return  box2;
     }
 
-//    private static <T> Box<T> getLarger(Box<T> box1, Box<T> box2) {
-//        if (box1.getValue() > box2.getValue()) { // Operator '>' cannot be applied to 'T', 'T
+//    private static <T extends Comparable<T>> Box<T> getLarger(Box<T> box1, Box<T> box2) {
+//        if (box1.getValue().compareTo(box2.getValue()) > 0) {
 //            return box1;
 //        }
 //
 //        return  box2;
 //    }
 
+
     public static void main(String[] args) {
 
-        Box<Integer> integerBox1 = new Box<>(22);
-        System.out.println(integerBox1);
+        Box<Car> carBox1 = new Box<>(new Car("Tesla", "Model S", 79000));
+        System.out.println(carBox1);
 
-        Box<Integer> integerBox2 = new Box<>(99);
-        System.out.println(integerBox2);
+        Box<Car> carBox2 = new Box<>(new Car("Toyota", "Carmry", 30000));
+        System.out.println(carBox2);
 
-        System.out.println("Larger box: " + getLarger(integerBox1, integerBox2));
+        System.out.println("Larger box: " + getLarger(carBox1, carBox2));
 
-//        Box<Integer> integerBox = new Box<>(22);
-//        System.out.println(integerBox);
+//        Box<Car> carBox1 = new Box<>(new Car("Tesla", "Model S", 79000)); // Type parameter 'com.skillsoft.generics.Car' is not within its bound; should implement 'java.lang.Comparable<com.skillsoft.generics.Car>'
+//        System.out.println(carBox1);
 //
-//        Box<Float> floatBox = new Box<>(22.2f);
-//        System.out.println(floatBox);
+//        Box<Car> carBox2 = new Box<>(new Car("Toyota", "Carmry", 30000)); // Type parameter 'com.skillsoft.generics.Car' is not within its bound; should implement 'java.lang.Comparable<com.skillsoft.generics.Car>'
+//        System.out.println(carBox2);
 //
-//        Box<BigInteger> bigIntegerBox = new Box<>(BigInteger.valueOf(100000000));
-//        System.out.println(bigIntegerBox);
-//
-//        Box<String> stringBox = new Box<>("Zoe");
-//        System.out.println(stringBox);
-
+//        System.out.println("Larger box: " + getLarger(carBox1, carBox2)); // reason: no instance(s) of type variable(s) T exist so that Car conforms to Comparable<T>
     }
 }
 

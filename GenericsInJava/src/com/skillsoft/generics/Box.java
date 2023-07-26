@@ -1,8 +1,6 @@
 package com.skillsoft.generics;
 
-public class Box<T extends Comparable<T>> {
-    // Here is an example of a bounded type parameter specified for our class definition
-    // Type parameter T implements Comparable<T> interface
+public class Box<T extends Comparable<T>> implements Comparable<Box<T>> {
     private T value;
 
     public Box(T value) {
@@ -22,4 +20,8 @@ public class Box<T extends Comparable<T>> {
         return String.format("In a box: {%s}", value);
     }
 
+    @Override
+    public int compareTo(Box<T> o) {
+        return this.value.compareTo(o.value);
+    }
 }
