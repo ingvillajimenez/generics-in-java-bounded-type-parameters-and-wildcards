@@ -1,56 +1,106 @@
 package com.skillsoft.generics;
 
-import java.io.Serializable;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Class<?> stringClass = String.class; // Unbounded wildcard in Class object
+        LinkedList<String> juliesCourses = new LinkedList<>();
+        juliesCourses.add("Math");
+        juliesCourses.add("Art");
+        juliesCourses.add("Java");
 
-        System.out.println("\nName (String): " + stringClass.getName());
-        System.out.println("Package (String): " + stringClass.getPackageName());
-        System.out.println("Superclass (String): " + stringClass.getSuperclass());
-        System.out.println("isInterface (String): " + stringClass.isInterface());
+        LinkedList<String> andrewsCourses = new LinkedList<>();
+        andrewsCourses.add("Chemistry");
+        andrewsCourses.add("English");
 
-        Class<?> dateClass = Date.class; // Unbounded wildcard in Class object
+        Map<String, Object> coursesMap = new HashMap<>();
+        coursesMap.put("Julie", juliesCourses);
+        coursesMap.put("Andrew", andrewsCourses);
 
-        System.out.println("\nName (Date): " + dateClass.getName());
-        System.out.println("Package (Date): " + dateClass.getPackageName());
-        System.out.println("Superclass (Date): " + dateClass.getSuperclass());
-        System.out.println("isInterface (Date): " + dateClass.isInterface());
+        StudentsUtil.printMapEntries(coursesMap);
 
-        Class<?> serializableClass = Serializable.class; // Unbounded wildcard in Class object
-
-        System.out.println("\nName (Serializable): " + serializableClass.getName());
-        System.out.println("Package (Serializable): " + serializableClass.getPackageName());
-        System.out.println("Superclass (Serializable): " + serializableClass.getSuperclass());
-        System.out.println("isInterface (Serializable): " + serializableClass.isInterface());
-
-//        Class<String> stringClass = String.class; // Parameterized Class object
+//        LinkedList<String> juliesCourses = new LinkedList<>();
+//        juliesCourses.add("Math");
+//        juliesCourses.add("Art");
+//        juliesCourses.add("Java");
 //
-//        System.out.println("\nName (String): " + stringClass.getName());
-//        System.out.println("Package (String): " + stringClass.getPackageName());
-//        System.out.println("Superclass (String): " + stringClass.getSuperclass());
-//        System.out.println("isInterface (String): " + stringClass.isInterface());
+//        LinkedList<String> andrewsCourses = new LinkedList<>();
+//        andrewsCourses.add("Chemistry");
+//        andrewsCourses.add("English");
 //
-//        Class<Date> dateClass = Date.class; // Parameterized Class object
+//        Map<String, Iterable<String>> coursesMap = new HashMap<>();
+//        coursesMap.put("Julie", juliesCourses);
+//        coursesMap.put("Andrew", andrewsCourses);
 //
-//        System.out.println("\nName (Date): " + dateClass.getName());
-//        System.out.println("Package (Date): " + dateClass.getPackageName());
-//        System.out.println("Superclass (Date): " + dateClass.getSuperclass());
-//        System.out.println("isInterface (Date): " + dateClass.isInterface());
+//        StudentsUtil.printMapEntries(coursesMap);
+
+//        LinkedList<String> juliesCourses = new LinkedList<>();
+//        juliesCourses.add("Math");
+//        juliesCourses.add("Art");
+//        juliesCourses.add("Java");
 //
-//        Class<Serializable> serializableClass = Serializable.class; // Parameterized Class object
+//        LinkedList<String> andrewsCourses = new LinkedList<>();
+//        andrewsCourses.add("Chemistry");
+//        andrewsCourses.add("English");
 //
-//        System.out.println("\nName (Serializable): " + serializableClass.getName());
-//        System.out.println("Package (Serializable): " + serializableClass.getPackageName());
-//        System.out.println("Superclass (Serializable): " + serializableClass.getSuperclass());
-//        System.out.println("isInterface (Serializable): " + serializableClass.isInterface());
+//        Map<String, Collection<String>> coursesMap = new HashMap<>();
+//        coursesMap.put("Julie", juliesCourses);
+//        coursesMap.put("Andrew", andrewsCourses);
+//
+//        StudentsUtil.printMapEntries(coursesMap);
+
+//        LinkedList<String> juliesCourses = new LinkedList<>();
+//        juliesCourses.add("Math");
+//        juliesCourses.add("Art");
+//        juliesCourses.add("Java");
+//
+//        LinkedList<String> andrewsCourses = new LinkedList<>();
+//        andrewsCourses.add("Chemistry");
+//        andrewsCourses.add("English");
+//
+//        Map<String, List<String>> coursesMap = new HashMap<>();
+//        coursesMap.put("Julie", juliesCourses);
+//        coursesMap.put("Andrew", andrewsCourses);
+//
+//        StudentsUtil.printMapEntries(coursesMap);
+
+//        LinkedList<String> juliesCourses = new LinkedList<>();
+//        juliesCourses.add("Math");
+//        juliesCourses.add("Art");
+//        juliesCourses.add("Java");
+//
+//        LinkedList<String> andrewsCourses = new LinkedList<>();
+//        andrewsCourses.add("Chemistry");
+//        andrewsCourses.add("English");
+//
+//        Map<String, LinkedList<String>> coursesMap = new HashMap<>();
+//        coursesMap.put("Julie", juliesCourses);
+//        coursesMap.put("Andrew", andrewsCourses);
+//
+//        StudentsUtil.printMapEntries(coursesMap); // java: incompatible types: java.util.Map<java.lang.String,java.util.LinkedList<java.lang.String>> cannot be converted to java.util.Map<java.lang.String,? super java.util.ArrayList<java.lang.String>>
+
+//        ArrayList<String> juliesCourses = new ArrayList<>();
+//        juliesCourses.add("Math");
+//        juliesCourses.add("Art");
+//        juliesCourses.add("Java");
+//
+//        ArrayList<String> andrewsCourses = new ArrayList<>();
+//        andrewsCourses.add("Chemistry");
+//        andrewsCourses.add("English");
+//
+//        Map<String, ArrayList<String>> coursesMap = new HashMap<>();
+//        coursesMap.put("Julie", juliesCourses);
+//        coursesMap.put("Andrew", andrewsCourses);
+//
+//        StudentsUtil.printMapEntries(coursesMap);
+
+//        ArrayList<String> courses = new ArrayList<>();
+//
+//        System.out.println("ArrayList instanceof List: " + (courses instanceof List));
+//        System.out.println("ArrayList instanceof Collection: " + (courses instanceof Collection));
+//        System.out.println("ArrayList instanceof Iterable: " + (courses instanceof Iterable));
 
     }
 }
@@ -76,3 +126,9 @@ public class Main {
 // Unbounded Wildcards
 // Method can be implemented using functionality in the Object base class
 // When the code of the method is such that it does not depend on the exact type
+
+// Inheritance Hierarchy
+// Iterable -> Collection -> List -> ArrayList
+
+// ? super ArrayList<String>
+// List<String>, Collection<String>, Iterable<String>, Object
