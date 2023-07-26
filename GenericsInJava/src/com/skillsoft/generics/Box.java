@@ -1,6 +1,7 @@
 package com.skillsoft.generics;
 
-public class Box<T extends Comparable<T>> implements Comparable<Box<T>> {
+public class Box<T extends Comparable<T> & PrettyPrintable> // Multiple bound specification for bounded type T
+        implements Comparable<Box<T>>, PrettyPrintable {
     private T value;
 
     public Box(T value) {
@@ -23,5 +24,12 @@ public class Box<T extends Comparable<T>> implements Comparable<Box<T>> {
     @Override
     public int compareTo(Box<T> o) {
         return this.value.compareTo(o.value);
+    }
+
+    @Override
+    public void prettyPrint() {
+        System.out.println("*--**--**--**--**--**--**--*");
+        value.prettyPrint();
+        System.out.println("*--**--**--**--**--**--**--*");
     }
 }

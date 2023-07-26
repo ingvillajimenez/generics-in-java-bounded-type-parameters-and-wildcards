@@ -1,6 +1,6 @@
 package com.skillsoft.generics;
 
-public class Car implements Comparable<Car> {
+public class Car implements Comparable<Car>, PrettyPrintable {
     public String make;
     public String model;
     public Integer price;
@@ -19,5 +19,10 @@ public class Car implements Comparable<Car> {
     @Override
     public int compareTo(Car o) {
         return this.price.compareTo(o.price);
+    }
+
+    @Override
+    public void prettyPrint() {
+        System.out.println("++++" + this + "++++");
     }
 }
