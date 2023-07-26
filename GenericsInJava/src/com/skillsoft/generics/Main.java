@@ -1,5 +1,7 @@
 package com.skillsoft.generics;
 
+import java.io.Serializable;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,82 +10,48 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Map<String, Double> studentsMap = new HashMap<>();
+        Class<?> stringClass = String.class; // Unbounded wildcard in Class object
 
-        studentsMap.put("Dorian", 45.5);
-        studentsMap.put("Ophelia", 67.2);
-        studentsMap.put("Matthew", 73.8);
-        studentsMap.put("Carl", 87.0);
+        System.out.println("\nName (String): " + stringClass.getName());
+        System.out.println("Package (String): " + stringClass.getPackageName());
+        System.out.println("Superclass (String): " + stringClass.getSuperclass());
+        System.out.println("isInterface (String): " + stringClass.isInterface());
 
-        System.out.println("Average score of students (double scores): " +
-                StudentsUtil.computeAverageScore(studentsMap));
+        Class<?> dateClass = Date.class; // Unbounded wildcard in Class object
 
-        Map<Integer, Integer> anotherStudentsMap = new HashMap<>();
+        System.out.println("\nName (Date): " + dateClass.getName());
+        System.out.println("Package (Date): " + dateClass.getPackageName());
+        System.out.println("Superclass (Date): " + dateClass.getSuperclass());
+        System.out.println("isInterface (Date): " + dateClass.isInterface());
 
-        anotherStudentsMap.put(1001, 87);
-        anotherStudentsMap.put(1002, 78);
-        anotherStudentsMap.put(1003, 67);
+        Class<?> serializableClass = Serializable.class; // Unbounded wildcard in Class object
 
-        System.out.println("Average score of students (integer scores): " +
-                StudentsUtil.computeAverageScore(anotherStudentsMap));
+        System.out.println("\nName (Serializable): " + serializableClass.getName());
+        System.out.println("Package (Serializable): " + serializableClass.getPackageName());
+        System.out.println("Superclass (Serializable): " + serializableClass.getSuperclass());
+        System.out.println("isInterface (Serializable): " + serializableClass.isInterface());
 
-//        Map<String, Double> studentsMap = new HashMap<>();
+//        Class<String> stringClass = String.class; // Parameterized Class object
 //
-//        studentsMap.put("Dorian", 45.5);
-//        studentsMap.put("Ophelia", 67.2);
-//        studentsMap.put("Matthew", 73.8);
-//        studentsMap.put("Carl", 87.0);
+//        System.out.println("\nName (String): " + stringClass.getName());
+//        System.out.println("Package (String): " + stringClass.getPackageName());
+//        System.out.println("Superclass (String): " + stringClass.getSuperclass());
+//        System.out.println("isInterface (String): " + stringClass.isInterface());
 //
-//        StudentsUtil.printMapEntries(studentsMap);
+//        Class<Date> dateClass = Date.class; // Parameterized Class object
 //
-//        System.out.println("\n***************");
+//        System.out.println("\nName (Date): " + dateClass.getName());
+//        System.out.println("Package (Date): " + dateClass.getPackageName());
+//        System.out.println("Superclass (Date): " + dateClass.getSuperclass());
+//        System.out.println("isInterface (Date): " + dateClass.isInterface());
 //
-//        Map<Integer, String> anotherStudentsMap = new HashMap<>();
+//        Class<Serializable> serializableClass = Serializable.class; // Parameterized Class object
 //
-//        anotherStudentsMap.put(1001, "Della");
-//        anotherStudentsMap.put(1002, "Perry");
-//        anotherStudentsMap.put(1003, "Paul");
-//
-//        StudentsUtil.printMapEntries(anotherStudentsMap);
+//        System.out.println("\nName (Serializable): " + serializableClass.getName());
+//        System.out.println("Package (Serializable): " + serializableClass.getPackageName());
+//        System.out.println("Superclass (Serializable): " + serializableClass.getSuperclass());
+//        System.out.println("isInterface (Serializable): " + serializableClass.isInterface());
 
-
-//        Map<String, Double> studentsMap = new HashMap<>();
-//
-//        studentsMap.put("Dorian", 45.5);
-//        studentsMap.put("Ophelia", 67.2);
-//        studentsMap.put("Matthew", 73.8);
-//        studentsMap.put("Carl", 87.0);
-//
-//        List<Object> scoresList = StudentsUtil.getScoresAsList(studentsMap); // java: incompatible types: java.util.Map<java.lang.String,java.lang.Double> cannot be converted to java.util.Map<java.lang.String,java.lang.Object>
-//        System.out.println("Scores list (objects): " + scoresList);
-//
-//        Map<String, Integer> anotherStudentsMap = new HashMap<>();
-//
-//        anotherStudentsMap.put("Della", 87);
-//        anotherStudentsMap.put("Perry", 78);
-//        anotherStudentsMap.put("Paul", 67);
-//
-//        List<Object> anotherScoresList = StudentsUtil.getScoresAsList(anotherStudentsMap); // java: incompatible types: java.util.Map<java.lang.String,java.lang.Integer> cannot be converted to java.util.Map<java.lang.String,java.lang.Object>
-//        System.out.println("Another scores list (objects): " + anotherScoresList);
-
-//        Map<String, Object> studentsMap = new HashMap<>();
-//
-//        studentsMap.put("Dorian", 45.5);
-//        studentsMap.put("Ophelia", 67.2);
-//        studentsMap.put("Matthew", 73.8);
-//        studentsMap.put("Carl", 87.0);
-//
-//        List<Object> scoresList = StudentsUtil.getScoresAsList(studentsMap);
-//        System.out.println("Scores list (objects): " + scoresList);
-//
-//        Map<String, Object> anotherStudentsMap = new HashMap<>();
-//
-//        anotherStudentsMap.put("Della", 87);
-//        anotherStudentsMap.put("Perry", 78);
-//        anotherStudentsMap.put("Paul", 67);
-//
-//        List<Object> anotherScoresList = StudentsUtil.getScoresAsList(anotherStudentsMap);
-//        System.out.println("Another scores list (objects): " + anotherScoresList);
     }
 }
 
