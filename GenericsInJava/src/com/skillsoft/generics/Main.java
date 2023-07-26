@@ -4,63 +4,50 @@ import java.math.BigInteger;
 import java.util.Date;
 
 public class Main {
+
+    private static <T extends Comparable<T>> Box<T> getLarger(Box<T> box1, Box<T> box2) {
+        if (box1.getValue().compareTo(box2.getValue()) > 0) {
+            return box1;
+        }
+
+        return  box2;
+    }
+
+//    private static <T> Box<T> getLarger(Box<T> box1, Box<T> box2) {
+//        if (box1.getValue() > box2.getValue()) { // Operator '>' cannot be applied to 'T', 'T
+//            return box1;
+//        }
+//
+//        return  box2;
+//    }
+
     public static void main(String[] args) {
 
-        System.out.println("************* Invoke the isPrime() method");
+        Box<Integer> integerBox1 = new Box<>(22);
+        System.out.println(integerBox1);
 
-        System.out.println("Is 17 prime: " + MathUtil.isPrime(17));
+        Box<Integer> integerBox2 = new Box<>(99);
+        System.out.println(integerBox2);
 
-        System.out.println("Is 37 prime: " + MathUtil.isPrime(37));
+        System.out.println("Larger box: " + getLarger(integerBox1, integerBox2));
 
-        System.out.println("Is 52 prime: " + MathUtil.isPrime(51));
-
-//        System.out.println("************* Invoke the isPrime() method");
+//        Box<Integer> integerBox = new Box<>(22);
+//        System.out.println(integerBox);
 //
-//        System.out.println("Is 17 prime: " + MathUtil.isPrime(17));
+//        Box<Float> floatBox = new Box<>(22.2f);
+//        System.out.println(floatBox);
 //
-//        System.out.println("Is 17.2 prime: " + MathUtil.isPrime(17.2));
-//        java: method isPrime in class com.skillsoft.generics.MathUtil cannot be applied to given types;
-//        required: T
-//        found:    double
-//        reason: inference variable T has incompatible bounds
-//        lower bounds: java.lang.Integer
-//        lower bounds: java.lang.Double
-
-//        System.out.println("************* Invoke the isEven() method");
+//        Box<BigInteger> bigIntegerBox = new Box<>(BigInteger.valueOf(100000000));
+//        System.out.println(bigIntegerBox);
 //
-//        System.out.println("Is 50 even: " + MathUtil.isEven(50));
-//
-//        System.out.println("Is 103 even: " + MathUtil.isEven(103));
-//
-//        System.out.println("Is 50.2 even: " + MathUtil.isEven(50.2));
-//
-//        System.out.println("Is 5000000 even: " + MathUtil.isEven(BigInteger.valueOf(5000000)));
-//
-//        System.out.println("************* Invoke the isPrime() method");
-//
-//        System.out.println("Is 50 prime: " + MathUtil.isPrime(50));
-//
-//        System.out.println("Is 17 prime: " + MathUtil.isPrime(17));
-//
-//        System.out.println("Is 5000000 prime: " + MathUtil.isPrime(BigInteger.valueOf(5000000)));
-
-
-//        System.out.println("********** Invoke the isEven() method");
-//
-//        System.out.println("Is fifty even: " + MathUtil.isEven("fifty")); // compile-time error
-////        java: method isEven in class com.skillsoft.generics.MathUtil cannot be applied to given types;
-////        required: T
-////        found:    java.lang.String
-////        reason: inference variable T has incompatible bounds
-////        lower bounds: java.lang.Number
-////        lower bounds: java.lang.String
-//
-//        System.out.println("*********** Invoke the isPrime() method");
-//
-//        System.out.println("Is seventeen prime: " + MathUtil.isPrime("seventeen")); // compile-time error
-//
-//        System.out.println("Is today's date prime: " + MathUtil.isPrime(new Date())); // compile-time error
-
+//        Box<String> stringBox = new Box<>("Zoe");
+//        System.out.println(stringBox);
 
     }
 }
+
+// The Comparable Interface
+// Implement the single method compareTo()
+
+// x.compareTo(y)
+// Positive if x > y, negative if x < y, zero if x = y
