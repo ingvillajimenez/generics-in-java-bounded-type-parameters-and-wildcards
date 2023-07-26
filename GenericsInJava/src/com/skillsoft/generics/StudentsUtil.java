@@ -6,29 +6,47 @@ import java.util.Map;
 
 public class StudentsUtil {
 
-    public static List<? extends Number> getScoresAsList(Map<String, ? extends Number> studentsMap) {
+    public static void printMapEntries(Map<?, ?> map) { // Both the key as well as the value types are unbounded wildcard
 
-        List<? extends Number> list = new ArrayList<>();
-
-        for (Map.Entry<String, ? extends Number> entry : studentsMap.entrySet()) {
-            // NOTE: The data type of the element is unknown, we can only access
-            // it using the Object data type
-            Object score = entry.getValue();
-
-            // NOTE: This method requires the actual data type of the element
-            // being added, that is not available when we use upper bounded wildcards
-            list.add(score); // java: incompatible types: java.lang.Object cannot be converted to capture#1 of ? extends java.lang.Number
+        for (Map.Entry<?, ?> entry : map.entrySet()) { // Both the key as well as the value types are unbounded wildcard
+            System.out.format("Key: %s, Map: %s\n", entry.getKey(), entry.getValue());
         }
-
-        return list;
     }
 
-//    public static <T extends Number> List<T> getScoresAsList(Map<String, T> studentsMap) {
+    public static double computeAverageScore(Map<?, ? extends Number> scoreMap) { // Key is unbounded wildcard, values is upper-bounded wildcard
+
+        double totalScore = 0;
+        int count = 0;
+
+        for (Map.Entry<?, ? extends Number> entry : scoreMap.entrySet()) { // Key is unbounded wildcard, values is upper-bounded wildcard
+            totalScore += entry.getValue().doubleValue();
+            count++;
+        }
+
+        return totalScore / count;
+    }
+
+//    public static List<Object> getScoresAsList(Map<String, ?> studentsMap) { // Unbounded wildcard
 //
-//        List<T> list = new ArrayList<>();
+//        List<Object> list = new ArrayList<>();
 //
-//        for (Map.Entry<String, T> entry : studentsMap.entrySet()) {
-//            T score = entry.getValue();
+//        for (Map.Entry<String, ?> entry : studentsMap.entrySet()) { // Unbounded wildcard
+//
+//            Object score = entry.getValue();
+//
+//            list.add(score);
+//        }
+//
+//        return list;
+//    }
+
+//    public static List<Object> getScoresAsList(Map<String, Object> studentsMap) {
+//
+//        List<Object> list = new ArrayList<>();
+//
+//        for (Map.Entry<String, Object> entry : studentsMap.entrySet()) {
+//
+//            Object score = entry.getValue();
 //
 //            list.add(score);
 //        }

@@ -1,6 +1,7 @@
 package com.skillsoft.generics;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Main {
@@ -14,16 +15,75 @@ public class Main {
         studentsMap.put("Matthew", 73.8);
         studentsMap.put("Carl", 87.0);
 
-        System.out.println("Scores list (doubles): " + StudentsUtil.getScoresAsList(studentsMap));
+        System.out.println("Average score of students (double scores): " +
+                StudentsUtil.computeAverageScore(studentsMap));
 
-        Map<String, Integer> anotherStudentsMap = new HashMap<>();
+        Map<Integer, Integer> anotherStudentsMap = new HashMap<>();
 
-        anotherStudentsMap.put("Della", 87);
-        anotherStudentsMap.put("Perry", 78);
-        anotherStudentsMap.put("Paul", 67);
+        anotherStudentsMap.put(1001, 87);
+        anotherStudentsMap.put(1002, 78);
+        anotherStudentsMap.put(1003, 67);
 
-        System.out.println("Scores list (integers): " + StudentsUtil.getScoresAsList(anotherStudentsMap));
+        System.out.println("Average score of students (integer scores): " +
+                StudentsUtil.computeAverageScore(anotherStudentsMap));
 
+//        Map<String, Double> studentsMap = new HashMap<>();
+//
+//        studentsMap.put("Dorian", 45.5);
+//        studentsMap.put("Ophelia", 67.2);
+//        studentsMap.put("Matthew", 73.8);
+//        studentsMap.put("Carl", 87.0);
+//
+//        StudentsUtil.printMapEntries(studentsMap);
+//
+//        System.out.println("\n***************");
+//
+//        Map<Integer, String> anotherStudentsMap = new HashMap<>();
+//
+//        anotherStudentsMap.put(1001, "Della");
+//        anotherStudentsMap.put(1002, "Perry");
+//        anotherStudentsMap.put(1003, "Paul");
+//
+//        StudentsUtil.printMapEntries(anotherStudentsMap);
+
+
+//        Map<String, Double> studentsMap = new HashMap<>();
+//
+//        studentsMap.put("Dorian", 45.5);
+//        studentsMap.put("Ophelia", 67.2);
+//        studentsMap.put("Matthew", 73.8);
+//        studentsMap.put("Carl", 87.0);
+//
+//        List<Object> scoresList = StudentsUtil.getScoresAsList(studentsMap); // java: incompatible types: java.util.Map<java.lang.String,java.lang.Double> cannot be converted to java.util.Map<java.lang.String,java.lang.Object>
+//        System.out.println("Scores list (objects): " + scoresList);
+//
+//        Map<String, Integer> anotherStudentsMap = new HashMap<>();
+//
+//        anotherStudentsMap.put("Della", 87);
+//        anotherStudentsMap.put("Perry", 78);
+//        anotherStudentsMap.put("Paul", 67);
+//
+//        List<Object> anotherScoresList = StudentsUtil.getScoresAsList(anotherStudentsMap); // java: incompatible types: java.util.Map<java.lang.String,java.lang.Integer> cannot be converted to java.util.Map<java.lang.String,java.lang.Object>
+//        System.out.println("Another scores list (objects): " + anotherScoresList);
+
+//        Map<String, Object> studentsMap = new HashMap<>();
+//
+//        studentsMap.put("Dorian", 45.5);
+//        studentsMap.put("Ophelia", 67.2);
+//        studentsMap.put("Matthew", 73.8);
+//        studentsMap.put("Carl", 87.0);
+//
+//        List<Object> scoresList = StudentsUtil.getScoresAsList(studentsMap);
+//        System.out.println("Scores list (objects): " + scoresList);
+//
+//        Map<String, Object> anotherStudentsMap = new HashMap<>();
+//
+//        anotherStudentsMap.put("Della", 87);
+//        anotherStudentsMap.put("Perry", 78);
+//        anotherStudentsMap.put("Paul", 67);
+//
+//        List<Object> anotherScoresList = StudentsUtil.getScoresAsList(anotherStudentsMap);
+//        System.out.println("Another scores list (objects): " + anotherScoresList);
     }
 }
 
@@ -44,3 +104,7 @@ public class Main {
 
 // Bounded Type Parameters vs. Upper Bounded Wildcards
 // With bounded types the type T is known, with wildcards the type ? is unknown
+
+// Unbounded Wildcards
+// Method can be implemented using functionality in the Object base class
+// When the code of the method is such that it does not depend on the exact type
