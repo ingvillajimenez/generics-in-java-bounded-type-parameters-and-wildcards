@@ -6,102 +6,16 @@ public class Main {
 
     public static void main(String[] args) {
 
-        LinkedList<String> juliesCourses = new LinkedList<>();
-        juliesCourses.add("Math");
-        juliesCourses.add("Art");
-        juliesCourses.add("Java");
+        List<Integer> integerList = new ArrayList<>(Arrays.asList(100, 110, 120, 130, 140));
+        List<Double> doubleList = new ArrayList<>(Arrays.asList(100.1, 110.7, 120.4, 130.3, 140.9));
 
-        LinkedList<String> andrewsCourses = new LinkedList<>();
-        andrewsCourses.add("Chemistry");
-        andrewsCourses.add("English");
+        ListUtil.copy(integerList, doubleList, 3);
 
-        Map<String, Object> coursesMap = new HashMap<>();
-        coursesMap.put("Julie", juliesCourses);
-        coursesMap.put("Andrew", andrewsCourses);
-
-        StudentsUtil.printMapEntries(coursesMap);
-
-//        LinkedList<String> juliesCourses = new LinkedList<>();
-//        juliesCourses.add("Math");
-//        juliesCourses.add("Art");
-//        juliesCourses.add("Java");
+//        List<String> nameList = new ArrayList<>(Arrays.asList("Alice", "Boris", "Coralie", "Denver"));
+//        System.out.println("Original list: " + nameList);
 //
-//        LinkedList<String> andrewsCourses = new LinkedList<>();
-//        andrewsCourses.add("Chemistry");
-//        andrewsCourses.add("English");
-//
-//        Map<String, Iterable<String>> coursesMap = new HashMap<>();
-//        coursesMap.put("Julie", juliesCourses);
-//        coursesMap.put("Andrew", andrewsCourses);
-//
-//        StudentsUtil.printMapEntries(coursesMap);
-
-//        LinkedList<String> juliesCourses = new LinkedList<>();
-//        juliesCourses.add("Math");
-//        juliesCourses.add("Art");
-//        juliesCourses.add("Java");
-//
-//        LinkedList<String> andrewsCourses = new LinkedList<>();
-//        andrewsCourses.add("Chemistry");
-//        andrewsCourses.add("English");
-//
-//        Map<String, Collection<String>> coursesMap = new HashMap<>();
-//        coursesMap.put("Julie", juliesCourses);
-//        coursesMap.put("Andrew", andrewsCourses);
-//
-//        StudentsUtil.printMapEntries(coursesMap);
-
-//        LinkedList<String> juliesCourses = new LinkedList<>();
-//        juliesCourses.add("Math");
-//        juliesCourses.add("Art");
-//        juliesCourses.add("Java");
-//
-//        LinkedList<String> andrewsCourses = new LinkedList<>();
-//        andrewsCourses.add("Chemistry");
-//        andrewsCourses.add("English");
-//
-//        Map<String, List<String>> coursesMap = new HashMap<>();
-//        coursesMap.put("Julie", juliesCourses);
-//        coursesMap.put("Andrew", andrewsCourses);
-//
-//        StudentsUtil.printMapEntries(coursesMap);
-
-//        LinkedList<String> juliesCourses = new LinkedList<>();
-//        juliesCourses.add("Math");
-//        juliesCourses.add("Art");
-//        juliesCourses.add("Java");
-//
-//        LinkedList<String> andrewsCourses = new LinkedList<>();
-//        andrewsCourses.add("Chemistry");
-//        andrewsCourses.add("English");
-//
-//        Map<String, LinkedList<String>> coursesMap = new HashMap<>();
-//        coursesMap.put("Julie", juliesCourses);
-//        coursesMap.put("Andrew", andrewsCourses);
-//
-//        StudentsUtil.printMapEntries(coursesMap); // java: incompatible types: java.util.Map<java.lang.String,java.util.LinkedList<java.lang.String>> cannot be converted to java.util.Map<java.lang.String,? super java.util.ArrayList<java.lang.String>>
-
-//        ArrayList<String> juliesCourses = new ArrayList<>();
-//        juliesCourses.add("Math");
-//        juliesCourses.add("Art");
-//        juliesCourses.add("Java");
-//
-//        ArrayList<String> andrewsCourses = new ArrayList<>();
-//        andrewsCourses.add("Chemistry");
-//        andrewsCourses.add("English");
-//
-//        Map<String, ArrayList<String>> coursesMap = new HashMap<>();
-//        coursesMap.put("Julie", juliesCourses);
-//        coursesMap.put("Andrew", andrewsCourses);
-//
-//        StudentsUtil.printMapEntries(coursesMap);
-
-//        ArrayList<String> courses = new ArrayList<>();
-//
-//        System.out.println("ArrayList instanceof List: " + (courses instanceof List));
-//        System.out.println("ArrayList instanceof Collection: " + (courses instanceof Collection));
-//        System.out.println("ArrayList instanceof Iterable: " + (courses instanceof Iterable));
-
+//        ListUtil.swap(nameList, 1, 3);
+//        System.out.println("Swapped list: " + nameList);
     }
 }
 
@@ -132,3 +46,6 @@ public class Main {
 
 // ? super ArrayList<String>
 // List<String>, Collection<String>, Iterable<String>, Object
+
+// Wildcard Capture
+// Java's ability to infer the type of data you are working with and handle it correctly
