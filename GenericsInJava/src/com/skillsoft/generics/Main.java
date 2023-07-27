@@ -1,21 +1,23 @@
 package com.skillsoft.generics;
 
+import java.math.BigInteger;
 import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        List<Integer> integerList = new ArrayList<>(Arrays.asList(100, 110, 120, 130, 140));
-        List<Double> doubleList = new ArrayList<>(Arrays.asList(100.1, 110.7, 120.4, 130.3, 140.9));
+        Product<Integer> product = new Product<>("iPhone", 1001, 699, 10);
+        System.out.println("\nInteger id, price, and discount: " + product);
 
-        ListUtil.copy(integerList, doubleList, 3);
+        Product<BigInteger> tv = new Product<>(
+                "Samsung", BigInteger.valueOf(11011),
+                BigInteger.valueOf(2000), BigInteger.valueOf(500));
+        System.out.println("\nBigInteger id, price, and discount: " + tv);
 
-//        List<String> nameList = new ArrayList<>(Arrays.asList("Alice", "Boris", "Coralie", "Denver"));
-//        System.out.println("Original list: " + nameList);
-//
-//        ListUtil.swap(nameList, 1, 3);
-//        System.out.println("Swapped list: " + nameList);
+        Product<Float> shoes = new Product<>("Nike", 1111.0f, 200.75f, 5.5f);
+        System.out.println("\nFloat id, price, and discount: " + shoes);
+
     }
 }
 
@@ -49,3 +51,6 @@ public class Main {
 
 // Wildcard Capture
 // Java's ability to infer the type of data you are working with and handle it correctly
+
+// Type Parameter Names
+// By convention these are usually single, uppercase letters
