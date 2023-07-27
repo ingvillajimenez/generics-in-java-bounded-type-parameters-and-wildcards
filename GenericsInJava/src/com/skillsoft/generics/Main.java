@@ -7,16 +7,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Product<Integer> product = new Product<>("iPhone", 1001, 699, 10);
-        System.out.println("\nInteger id, price, and discount: " + product);
-
-        Product<BigInteger> tv = new Product<>(
-                "Samsung", BigInteger.valueOf(11011),
-                BigInteger.valueOf(2000), BigInteger.valueOf(500));
-        System.out.println("\nBigInteger id, price, and discount: " + tv);
-
-        Product<Float> shoes = new Product<>("Nike", 1111.0f, 200.75f, 5.5f);
-        System.out.println("\nFloat id, price, and discount: " + shoes);
 
     }
 }
@@ -54,3 +44,7 @@ public class Main {
 
 // Type Parameter Names
 // By convention these are usually single, uppercase letters
+
+// Type Erasure
+// Process where the compiler replaces a generic parameter with an actual class or bridge method
+// Bytecode produced contains only ordinary classes, interfaces, and methods
